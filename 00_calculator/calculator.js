@@ -1,5 +1,6 @@
 const screenInput = document.querySelector(".calculator-numbers");
 const buttonNumbers = document.querySelectorAll(".btn-");
+const addButton = document.getElementById("add");
 var stepA;
 var StepB;
 const clearButton = document.getElementById("clear");
@@ -22,6 +23,10 @@ clearButton.addEventListener("click", () => {
   } else {
     screenInput.value = "";
   }
+});
+
+addButton.addEventListener("click", () => {
+  add(screenInput.value, screenInput.value);
 });
 
 function add(a, b) {
