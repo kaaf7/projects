@@ -2,8 +2,7 @@ const screenInput = document.querySelector(".calculator-numbers");
 const buttonNumbers = document.querySelectorAll(".btn-");
 const addButton = document.getElementById("add");
 var input = "0";
-var stepA;
-var StepB;
+
 const clearButton = document.getElementById("clear");
 
 for (let i = 0; i < buttonNumbers.length; i++) {
@@ -20,9 +19,11 @@ for (let i = 0; i < buttonNumbers.length; i++) {
 
 clearButton.addEventListener("click", () => {
   if (screenInput.value !== "0") {
-    input = screenInput.value;
+    input = screenInput.value; // storing the data into other variable so we can use later for math operations
     console.log(input);
-    screenInput.value = "";
+    screenInput.value = ""; // turning input value into 0 
+    console.log( add(parseInt(input),parseInt(input))); // for parsing values from string into integer for mathematical operations
+
   } else {
     screenInput.value = "";
   }
@@ -33,23 +34,20 @@ clearButton.addEventListener("click", () => {
 // });
 
 function add(a, b) {
-  a + b;
-  return add;
+  return a + b;
 }
 
 function subtract(a, b) {
-  a - b;
-  return subtract;
+  return a - b;
 }
 
 function divide(a, b) {
-  a / b;
-  return divide;
+  return a/ b;
 }
 
 function multiply(a, b) {
-  a * b;
-  return multiply;
+  return a * b;
 }
 
-function Operator(mathOperation, a, b) {}
+
+
