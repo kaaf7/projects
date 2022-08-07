@@ -1,9 +1,8 @@
-let screenInput = document.querySelector(".calculator-numbers");
+const screenInput = document.querySelector(".calculator-numbers");
 const buttonNumbers = document.querySelectorAll(".btn-");
-
-let stepA;
-let stepB;
-let stepC;
+var stepA;
+var StepB;
+const clearButton = document.getElementById("clear");
 
 for (let i = 0; i < buttonNumbers.length; i++) {
   buttonNumbers[i].addEventListener("click", () => {
@@ -16,6 +15,15 @@ for (let i = 0; i < buttonNumbers.length; i++) {
     }
   });
 }
+
+clearButton.addEventListener("click", () => {
+  if (screenInput.value !== "0") {
+    screenInput.value = "";
+  } else {
+    screenInput.value = "";
+  }
+});
+
 function add(a, b) {
   a + b;
   return add;
@@ -35,5 +43,3 @@ function multiply(a, b) {
   a / b;
   return multiply;
 }
-
-function Operate(a, b, operation) {}
