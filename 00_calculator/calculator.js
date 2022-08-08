@@ -5,13 +5,14 @@ const operationButton = document.querySelectorAll(".btn-blue-operator");
 
 // this is an empty variable to save the data inside while doing the math operations
 var input = "0";
+
 // this is clear button which will clear the screen from the numbers on it
 const clearButton = document.getElementById("clear-operator");
+
 // this is a loop to get all the numbers and then add them into the screen as a a string value which will be converted later into int for the math operation
 for (let i = 0; i < buttonNumbers.length; i++) {
   buttonNumbers[i]?.addEventListener("click", () => {
     var elementValue = buttonNumbers[i].value;
-
     if (screenInput.value === "0") {
       screenInput.value = elementValue;
     } else {
