@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="#" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,23 +15,25 @@
       <div class="calculator">
         <input type="text" class="calculator-numbers" />
         <div class="calculator-buttons">
-          <button class="btn is-clear span-2 blue operator" id="clear">
+          <button class="btn is-clear span-2 blue operator" id="clear-operator">
             C
           </button>
           <button class="btn-blue-operator">&larr;</button>
-          <button class="btn-blue-operator">&divide;</button>
+          <button class="btn-blue-operator" id="divide-operator">
+            &divide;
+          </button>
           <button class="btn-" value="7">7</button>
           <button class="btn-" value="8">8</button>
           <button class="btn-" value="9">9</button>
-          <button class="btn-blue-operator" id="multiply">x</button>
+          <button class="btn-blue-operator" id="multiply-operator">x</button>
           <button class="btn-" value="4">4</button>
           <button class="btn-" value="5">5</button>
           <button class="btn-" value="6">6</button>
-          <button class="btn-blue-operator" id="subtract">-</button>
+          <button class="btn-blue-operator" id="subtract-operator">-</button>
           <button class="btn-" value="1">1</button>
           <button class="btn-" value="2">2</button>
           <button class="btn-" value="4">3</button>
-          <button id="sum-operator" class="btn" id="add">+</button>
+          <button class="btn-blue-operator" id="add-operator">+</button>
           <button class="btn span-3" value="0">0</button>
           <button class="btn-blue-operator" id="equal">=</button>
         </div>
