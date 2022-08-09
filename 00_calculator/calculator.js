@@ -70,12 +70,18 @@ function multiply(a, b) {
 }
 
 for (j = 0; j <= operationButton.length; j++) {
-
   operationButton[j]?.addEventListener("click", () => {
     emptyInput = screenInput.value;
-    clearOperation();
+    screenInput.value = "";
+    equalButtons.addEventListener("click", () => {
+      alert(parseInt((screenInput.value += emptyInput)) + parseInt(emptyInput));
+    });
   });
 }
+
+equalButtons.addEventListener("click", () => {
+  clearOperation();
+});
 
 // //a trial way to see if i can combine all the operator buttons into one grid and then i found a better way to summerize it in less than 5 lines of code instead of 50
 // for (let j = 0; j <= operationButton.length; j++) {
