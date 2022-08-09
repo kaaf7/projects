@@ -74,7 +74,11 @@ for (j = 0; j <= operationButton.length; j++) {
     emptyInput = screenInput.value;
     screenInput.value = "";
     equalButtons.addEventListener("click", () => {
-      alert(parseInt((screenInput.value += emptyInput)) + parseInt(emptyInput));
+      alert(
+        multiply(
+          parseInt((screenInput.value += emptyInput)) , parseInt(emptyInput)
+        )
+      );
     });
   });
 }
