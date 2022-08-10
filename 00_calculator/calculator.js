@@ -18,35 +18,39 @@ buttonNumbers.forEach((btn) => {
   });
 });
 
+operationButton.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    handleOperator(e.target.textContent);
+  });
+});
+
+function handleOperator(op) {
+  operator = op;
+  previousNum = currentNum;
+  screenDisplay.textContent = ""; // set the display back to nothing
+  currentNum = ""; // set the current number back to nothing
+}
 function handleNumber(number) {
-  if (currentNum.length <= 10) {
+  if (currentNum.length <= 10 || screenDisplay.textContent === "0") {
+    currentNum ="";
     currentNum += number;
     screenDisplay.textContent = currentNum;
   }
 }
 
-operationButton.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    handleOperation(e.target.textContent);
-  });
-});
-
-function handleOperation(op) {
-  operator = op;
-  previousNum = currentNum;
-  screenDisplay.textContent = "";
-}
-
-function calculate() {
-  previousNum = Number(previousNum);
+function handleMath() {
   currentNum = Number(currentNum);
+  previousNum = Number(previousNum);
   if (operator === "+") {
-    previousNum += currentNum;
+    currentNum += previousNum;
+    screenDisplay.textContent = currentNum;
+  } else if (operator === "-") {
+    currentNum = previousNum - currentNum;
+    screenDisplay.textContent = currentNum;
   }
-  
-  screenDisplay.textContent = previousNum;
 }
 
+equalButtons.addEventListener("click", handleMath);
 // // this is an empty variable to save the data inside while doing the math operations
 // var emptyInput = "0";
 
