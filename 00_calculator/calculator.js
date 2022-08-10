@@ -10,9 +10,7 @@ const equalButtons = document.getElementById("equal");
 
 const zeroButton = document.getElementById("zero-btn");
 
-
-const backStepButton = document.getElementById
-
+const bStepButton = document.getAnimations("backstep-btn");
 
 let currentNum = "";
 let previousNum = "";
@@ -66,14 +64,22 @@ function handleMath() {
 }
 
 equalButtons.addEventListener("click", handleMath);
-clearButton.addEventListener('click', clearOperation)
+bStepButton.addEventListener("click", () => {
+  if (currentNum.length > 0) {
+    currentNum = currentNum.substring(0, currentNum.length - 1); // to remove the last number added to the screen
+    screenDisplay.textContent = currentNum;
+  }
+});
 
 
 function clearOperation() {
-  screenDisplay.textContent = "";
-  previousNum = "";
-  currentNum = "";
+  if (screenDisplay.textContent.length > "0") {
+    screenDisplay.textContent = "";
+    previousNum = "";
+    currentNum = "";
+  }
 }
+
 // // this is an empty variable to save the data inside while doing the math operations
 // var emptyInput = "0";
 
