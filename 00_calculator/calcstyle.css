@@ -43,9 +43,6 @@
   grid-column: span 2;
 }
 
-.span-3 {
-  grid-column: span 3;
-}
 .btn {
   font-size: 1em;
   height: 65px;
@@ -61,4 +58,7 @@
 }
 .blue {
   background-color: rgba(30, 255, 244, 0.918);
+}
+.span-3 {
+  grid-column: span 3;
 }
