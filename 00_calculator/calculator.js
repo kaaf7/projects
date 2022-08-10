@@ -56,9 +56,6 @@ function handleMath() {
   }
 }
 
-
-
-
 equalButtons.addEventListener("click", handleMath);
 // // this is an empty variable to save the data inside while doing the math operations
 // var emptyInput = "0";
