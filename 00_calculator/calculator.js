@@ -32,7 +32,7 @@ function handleOperator(op) {
 }
 function handleNumber(number) {
   if (currentNum.length <= 10 || screenDisplay.textContent === "0") {
-    currentNum ="";
+    //currentNum = "";
     currentNum += number;
     screenDisplay.textContent = currentNum;
   }
@@ -47,8 +47,17 @@ function handleMath() {
   } else if (operator === "-") {
     currentNum = previousNum - currentNum;
     screenDisplay.textContent = currentNum;
+  } else if (operator === "/") {
+    currentNum = previousNum / currentNum;
+    screenDisplay.textContent = currentNum;
+  } else if (operator === "x") {
+    currentNum = previousNum / currentNum;
+    screenDisplay.textContent = currentNum;
   }
 }
+
+
+
 
 equalButtons.addEventListener("click", handleMath);
 // // this is an empty variable to save the data inside while doing the math operations
