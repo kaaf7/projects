@@ -8,6 +8,12 @@ const clearButton = document.getElementById("clear-operator");
 
 const equalButtons = document.getElementById("equal");
 
+const zeroButton = document.getElementById("zero-btn");
+
+
+const backStepButton = document.getElementById
+
+
 let currentNum = "";
 let previousNum = "";
 let operator = "";
@@ -24,6 +30,10 @@ operationButton.forEach((btn) => {
   });
 });
 
+zeroButton.addEventListener("click", (e) => {
+  handleNumber(e.target.textContent);
+});
+
 function handleOperator(op) {
   operator = op;
   previousNum = currentNum;
@@ -31,8 +41,7 @@ function handleOperator(op) {
   currentNum = ""; // set the current number back to nothing
 }
 function handleNumber(number) {
-  if (currentNum.length <= 10 || screenDisplay.textContent === "0") {
-    //currentNum = "";
+  if (currentNum.length <= 10) {
     currentNum += number;
     screenDisplay.textContent = currentNum;
   }
@@ -41,22 +50,30 @@ function handleNumber(number) {
 function handleMath() {
   currentNum = Number(currentNum);
   previousNum = Number(previousNum);
-  if (operator === "+") {
-    currentNum += previousNum;
+  if (previousNum > "0") {
+    if (operator === "+") {
+      currentNum += previousNum;
+    } else if (operator === "-") {
+      currentNum = previousNum - currentNum;
+    } else if (operator === "/") {
+      currentNum = previousNum / currentNum;
+    } else if (operator === "x") {
+      currentNum = previousNum * currentNum;
+    }
     screenDisplay.textContent = currentNum;
-  } else if (operator === "-") {
-    currentNum = previousNum - currentNum;
-    screenDisplay.textContent = currentNum;
-  } else if (operator === "/") {
-    currentNum = previousNum / currentNum;
-    screenDisplay.textContent = currentNum;
-  } else if (operator === "x") {
-    currentNum = previousNum / currentNum;
-    screenDisplay.textContent = currentNum;
+    previousNum = ""; // to stop the equal button from repeating the equation everytime we press the equal button
   }
 }
 
 equalButtons.addEventListener("click", handleMath);
+clearButton.addEventListener('click', clearOperation)
+
+
+function clearOperation() {
+  screenDisplay.textContent = "";
+  previousNum = "";
+  currentNum = "";
+}
 // // this is an empty variable to save the data inside while doing the math operations
 // var emptyInput = "0";
 
