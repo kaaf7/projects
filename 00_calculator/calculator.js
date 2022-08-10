@@ -10,7 +10,7 @@ const equalButtons = document.getElementById("equal");
 
 const zeroButton = document.getElementById("zero-btn");
 
-const bStepButton = document.getAnimations("backstep-btn");
+let bStepButton = document.getElementById("back");
 
 let currentNum = "";
 let previousNum = "";
@@ -58,19 +58,15 @@ function handleMath() {
     } else if (operator === "x") {
       currentNum = previousNum * currentNum;
     }
+    if (currentNum.length > 10) {
+      currentNum = currentNum.slice(0, 10);
+    }
     screenDisplay.textContent = currentNum;
     previousNum = ""; // to stop the equal button from repeating the equation everytime we press the equal button
   }
 }
 
 equalButtons.addEventListener("click", handleMath);
-bStepButton.addEventListener("click", () => {
-  if (currentNum.length > 0) {
-    currentNum = currentNum.substring(0, currentNum.length - 1); // to remove the last number added to the screen
-    screenDisplay.textContent = currentNum;
-  }
-});
-
 
 function clearOperation() {
   if (screenDisplay.textContent.length > "0") {
@@ -79,6 +75,13 @@ function clearOperation() {
     currentNum = "";
   }
 }
+
+bStepButton.addEventListener("click", () => {
+  if (currentNum.length > 0) {
+    currentNum = currentNum.substring(0, currentNum.length - 1); // to remove the last number added to the screen
+    screenDisplay.textContent = currentNum;
+  }
+});
 
 // // this is an empty variable to save the data inside while doing the math operations
 // var emptyInput = "0";
