@@ -1,3 +1,5 @@
+const bStepButton = document.getElementById("back-btn");
+
 const screenDisplay = document.querySelector(".calculator-numbers");
 
 const buttonNumbers = document.querySelectorAll(".btn-"); // selecting all the number buttons so i can loop through them
@@ -10,11 +12,18 @@ const equalButtons = document.getElementById("equal");
 
 const zeroButton = document.getElementById("zero-btn");
 
-let bStepButton = document.getElementById("back");
-
 let currentNum = "";
 let previousNum = "";
 let operator = "";
+
+bStepButton.addEventListener("click", () => {
+  if (currentNum.length > 0) {
+    currentNum = currentNum.substring(0, currentNum.length - 1); // to remove the last number added to the screen
+    screenDisplay.textContent = currentNum;
+  }
+});
+
+clearButton.addEventListener("click", clearOperation);
 
 buttonNumbers.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -31,6 +40,8 @@ operationButton.forEach((btn) => {
 zeroButton.addEventListener("click", (e) => {
   handleNumber(e.target.textContent);
 });
+
+equalButtons.addEventListener("click", handleMath);
 
 function handleNumber(number) {
   if (currentNum.length <= 10) {
@@ -69,28 +80,10 @@ function handleMath() {
   }
 }
 
-equalButtons.addEventListener("click", handleMath);
-
 function clearOperation() {
   if (screenDisplay.textContent.length > "0") {
     screenDisplay.textContent = "";
     previousNum = "";
     currentNum = "";
   }
-}
-
-bStepButton.addEventListener("click", () => {
-  if (currentNum.length > 0) {
-    currentNum = currentNum.substring(0, currentNum.length - 1); // to remove the last number added to the screen
-    screenDisplay.textContent = currentNum;
-  }
-});
-
-function round(num) {
-  if (num.length > 10) {
-    num = num.substring(0, 10);
-  }
-}
-function roundNumber(num) {
-  return Math.round(num * 100000) / 100000;
 }

@@ -6,12 +6,13 @@
 
 .container {
   margin: auto;
-  margin-top: %;
+  margin-top: 10%;
   width: 100%;
   max-height: 100%;
   background-color: rgb(255, 255, 255);
   position: relative;
 }
+
 .calculator {
   margin: auto;
   margin-top: auto;
@@ -23,7 +24,6 @@
 .calculator-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border: 0;
 }
 
 .calculator-numbers {
@@ -31,44 +31,65 @@
   background: rgb(0, 0, 0);
   color: white;
   font-size: 1.5em;
-  border: 0;
   padding: 0.1em;
   text-align: right;
   width: 100%;
   height: 100px;
+  border: 1px solid white;
 }
 
 .span-2 {
+  border: 1px solid white;
   grid-column: span 2;
+  transition: 1s;
 }
 
 .btn {
+  border: 1px solid white;
+
   font-size: 1em;
   height: 65px;
-  border: 1px solid rgb(230, 230, 230);
 }
 .btn- {
+  border: 1px solid white;
+
   transition: 1s;
   font-size: 1em;
   height: 65px;
-  border: 1px solid rgb(255, 255, 255);
 }
 
 .btn:hover {
-  background: rgb(221, 221, 221);
-}
-.btn-:hover {
+  border: 1px solid grey;
   background: rgb(221, 221, 221);
   transition: 1s;
 }
-.blue {
-  background-color: red;
+.btn-:hover {
+  border: 1px solid grey;
+
+  background: rgb(221, 221, 221);
+  transition: 1s;
 }
+
 .span-3 {
   grid-column: span 3;
 }
 
 .btn-blue-operator:hover {
+  border: 1px solid grey;
+  background-color: aquamarine;
+
   transition: 1s;
-  background-color: rgb(202, 247, 255);
+}
+.btn-blue-operator {
+  transition: 1s;
+
+  border: 1px solid white;
+}
+.equal-op {
+  border: 1px solid white;
+}
+.equal-op:hover {
+  border: 1px solid grey;
+  background-color: aquamarine;
+  transition: 1s;
 }
