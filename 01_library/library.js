@@ -5,3 +5,4 @@ let myLibrary = [];
 let newBook = { genre: "", Title: "", Author: "", Year: "", type: "" };
 function book() {}
 function addBookToLibrary() {}
+
