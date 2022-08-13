@@ -1,4 +1,7 @@
-const bookArr = document.querySelector("book-arr");
-const bookContainer = document.querySelector("container");
-const clone = bookContainer.cloneNode(true);
+let bookArr = document.querySelector("book-arr");
+let bookContainer = document.querySelector("container");
 
+let myLibrary = [];
+let newBook = { genre: "", Title: "", Author: "", Year: "", type: "" };
+function book() {}
+function addBoook() {}
