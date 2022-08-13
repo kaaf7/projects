@@ -4,4 +4,4 @@ let bookContainer = document.querySelector("container");
 let myLibrary = [];
 let newBook = { genre: "", Title: "", Author: "", Year: "", type: "" };
 function book() {}
-function addBoook() {}
+function addBookToLibrary() {}
