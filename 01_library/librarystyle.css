@@ -2,7 +2,20 @@
   margin: 0;
   padding: 0;
 }
+.grid-element{
+  width: 200px;
+  height: 300px;
+  position: relative;
+  background-color: #ff7878;
+}
 
+
+.grid{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+grid-template-rows: repeat(3,1fr);
+
+}
 .disappear {
   transition: width 100ms ease-in, heigt 100ms ease-in, font-size 100ms ease-in;
 }
@@ -10,7 +23,7 @@
 .fill-form {
   display: grid;
   margin-top: 5%;
-  grid-template-rows: repeat(5, 2fr);
+  grid-template-rows: repeat(5, 1fr);
   margin-left: 40%;
   position: absolute;
   height: 500px;
@@ -32,7 +45,7 @@
   text-align: center;
 }
 #header-text {
-  font-family: "Kanit";
+  font-family: 'beb', sans-serif;
   font-size: 35px;
   font-weight: bolder;
   position: absolute;
@@ -66,7 +79,45 @@
   position: absolute;
   margin-left: 95%;
   margin-top: 40%;
+  transition: 0.7;
+  -webkit-transition: .7s;
+  -moz-transition:.7s;
+  -ms-transition: .7s;
+  -o-transition: .7s;
+  -webkit-transform: rotate(deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
+.add-btn:hover{
+  transition: .7s;
+  -webkit-transition: .7s;
+  -moz-transition: .7s;
+  -ms-transition: .7s;
+  -o-transition: .7s;
+  -webkit-transform: rotate(deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.add-btn:focus {
+  
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
 #close-btn:hover {
   background-color: #ff7878;
   transition: 1s;
