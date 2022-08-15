@@ -1,7 +1,10 @@
-const addButton = document.querySelector('.add-btn')
-const bookForm = document.querySelector('.fill-form')
+const addButton = document.querySelector(".add-btn");
 
-addButton.addEventListener('click', ()=>{
+const bookName = document.querySelectorAll("book-name");
+const bookAthor = document.getElementById("book-author");
+const bookYear = document.getElementById("book-year");
+const bookGenre = document.getElementbyId("book-genre");
+//const readOrNot;
 
-bookForm.style.display = "none"
-})
+
+
