@@ -2,19 +2,17 @@
   margin: 0;
   padding: 0;
 }
-.grid-element{
+.grid-element {
   width: 200px;
   height: 300px;
   position: relative;
   background-color: #ff7878;
 }
 
-
-.grid{
-display: grid;
-grid-template-columns: repeat(3,1fr);
-grid-template-rows: repeat(3,1fr);
-
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 .disappear {
   transition: width 100ms ease-in, heigt 100ms ease-in, font-size 100ms ease-in;
@@ -31,9 +29,7 @@ grid-template-rows: repeat(3,1fr);
   background-color: white;
   border-radius: 20px;
   padding: 10px;
-
 }
-
 
 .header {
   max-width: 100%;
@@ -41,19 +37,18 @@ grid-template-rows: repeat(3,1fr);
   text-align: center;
 }
 #header-text {
-  font-family: 'bebas neue', sans-serif;
+  font-family: "bebas neue", sans-serif;
   font-size: 45px;
   font-weight: bolder;
   position: relative;
   margin-left: auto;
   color: black;
-
 }
 .body {
   background-color: #f3f0d7;
   max-width: 100%;
   height: 960px;
-  background-image: linear-gradient(to  bottom right, #f3f0d7 , #cee5d0)
+  background-image: linear-gradient(to bottom right, #f3f0d7, #cee5d0);
 }
 #close-btn {
   border-radius: 50%;
@@ -78,22 +73,22 @@ grid-template-rows: repeat(3,1fr);
   margin-left: 95%;
   margin-top: 40%;
   transition: 0.7;
-  -webkit-transition: .7s;
-  -moz-transition:.7s;
-  -ms-transition: .7s;
-  -o-transition: .7s;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
   -webkit-transform: rotate(deg);
   -moz-transform: rotate(-90deg);
   -o-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
-.add-btn:hover{
-  transition: .7s;
-  -webkit-transition: .7s;
-  -moz-transition: .7s;
-  -ms-transition: .7s;
-  -o-transition: .7s;
+.add-btn:hover {
+  transition: 0.7s;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
   -webkit-transform: rotate(deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
@@ -102,12 +97,11 @@ grid-template-rows: repeat(3,1fr);
 }
 
 .add-btn:focus {
-  
-  transition: .5s;
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
-  -ms-transition: .5s;
-  -o-transition: .5s;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
@@ -122,22 +116,20 @@ grid-template-rows: repeat(3,1fr);
   position: absolute;
 }
 
-
 #close-btn:hover {
   background-color: #ff7878;
   transition: 1s;
-  
 }
 
 .form {
   margin-top: 5px;
-  font-family: 'bebas neue';
+  font-family: "bebas neue";
   position: relative;
   width: 20rem;
 }
 .submit {
   border-radius: 6px;
-  font-family: 'bebas neue';
+  font-family: "bebas neue";
   position: relative;
   font-weight: bolder;
   width: 20rem;
@@ -146,16 +138,16 @@ grid-template-rows: repeat(3,1fr);
   margin-top: 70px;
   margin-bottom: 20px;
   border: none;
-  background-color:#cee5d0;
+  background-color: #cee5d0;
   font-size: 25px;
 }
 .submit:hover {
-  background-color:#afceb2;
+  background-color: #afceb2;
   transition: 1s;
 }
 
 .new-book {
-  font-family: 'bebas neue';
+  font-family: "bebas neue";
   font-size: 35px;
   font-weight: bolder;
   position: absolute;
@@ -173,7 +165,7 @@ grid-template-rows: repeat(3,1fr);
   width: 100%;
   justify-content: center;
   align-items: center;
-  border: .5px solid #c5c4c4;
+  border: 0.5px solid #c5c4c4;
   font-family: inherit;
   font-size: inherit;
   align-self: center;
