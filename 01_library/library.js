@@ -24,8 +24,10 @@ const fillFormChildren = document.querySelector(".fill-form").children;
 // const readOrNot;
 
 let library = [];
-let getook = { Name: "", Author: "", Year: "", Genre: "" };
+let book = { Name: "", Author: "", Year: "", Genre: "" };
+function insertBook(name, author, year, genre) {
 
+}
 
 addBtn.addEventListener("click", () => {
   if (fillForm.style.visibility != "visible") {
@@ -35,7 +37,6 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-
 submitBtn.addEventListener("click", () => {
   if (
     bookName.value !== "" &&
@@ -43,7 +44,6 @@ submitBtn.addEventListener("click", () => {
     bookYear.value !== "" &&
     bookGenre.value !== ""
   ) {
-    alert("hi");
   } else {
     alert("please insert text");
   }
