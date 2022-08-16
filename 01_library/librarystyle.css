@@ -31,11 +31,17 @@
   padding: 10px;
   visibility: hidden;
 }
+.body-container {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to bottom right, #f3f0d7, #cee5d0);
+}
 
 #header-text {
   font-family: "bebas neue", sans-serif;
   font-size: 45px;
   font-weight: bolder;
+  margin-left: 45%;
   color: black;
   position: absolute;
   text-align: center;
