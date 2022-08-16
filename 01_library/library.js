@@ -16,24 +16,23 @@ const fillFormChildren = document.querySelector(".fill-form").children;
 
 let myLibrary = [];
 
-let book = {
+let bookObj = {
   Name: "",
   author: "",
   year: "",
   genre: "",
 };
 
-function Book(name, author, year, genre) {
-  book.Name = name;
-  book.author = author;
-  book.year = year;
-  book.genre = genre;
+function book(name, author, year, genre) {
+  this.name = name;
+  this.author = author;
+  this.year = year;
+  this.genre = genre;
 }
 
 function addBookToLibrary() {
-  for (i = 0; i <= myLibrary.length; i++) {
-    book(bookName.value, bookAuthor.value, bookYear.value, bookGenre.value);
-  }
+  //book(bookName.value, bookAuthor.value, bookYear.value, bookGenre.value);
+  book("GOT", "Karim", "1993", "aaa");
 }
 
 addBtn.addEventListener("click", () => {
@@ -58,3 +57,6 @@ submitBtn.addEventListener("click", () => {
   } else {
   }
 });
+
+myLibrary.push(book("GOT", "Karim", "1993", "aaa"));
+console.log(myLibrary)
