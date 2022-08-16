@@ -12,6 +12,8 @@ const submitBtn = document.getElementById("submit-btn");
 
 const fillForm = document.querySelector(".fill-form");
 
+const fillFormChildren = document.querySelector(".fill-form").children;
+
 // const cardBookName = document.getElementById("cardBookName");
 
 // const cardAuthorName = document.getElementbyId("cardAuthorName");
@@ -30,11 +32,10 @@ let library = [
 function populateInput(bName, bAuthor, bookYear, bookG) {}
 
 addBtn.addEventListener("click", () => {
-  if ((fillForm.style.visibility = "hidden")) {
+  if (fillForm.style.visibility != "visible") {
     fillForm.style.visibility = "visible";
-  } else if ((fillForm.style.visibility = "visible")) {
+  } else {
     fillForm.style.visibility = "hidden";
-    return;
   }
 });
 
@@ -44,8 +45,8 @@ submitBtn.addEventListener("click", () => {
     bookAuthor.value !== "" &&
     bookYear.value !== "" &&
     bookGenre.value !== ""
-  ) {
-  } else {
+  ) {  alert ("Please fill all the forms")} else  {
+    
   }
 });
 
