@@ -20,9 +20,9 @@
 
 .fill-form {
   display: grid;
-  margin-top: 5%;
   grid-template-rows: repeat(5, 1fr);
-  margin-left: 40%;
+  margin-left: 37%;
+  margin-top: 5%;
   position: absolute;
   height: 500px;
   width: 350px;
@@ -31,11 +31,6 @@
   padding: 10px;
   visibility: hidden;
 }
-.body-container {
-  height: 100vh;
-  width: 100vw;
-  background-image: linear-gradient(to bottom right, #f3f0d7, #cee5d0);
-}
 
 #header-text {
   font-family: "bebas neue", sans-serif;
@@ -43,16 +38,25 @@
   font-weight: bolder;
   margin-left: 45%;
   color: black;
-  position: absolute;
   text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
 }
 .body {
   margin: 0;
-  height: 100vh;
-  width: 100vw;
+
   background-image: linear-gradient(to bottom right, #f3f0d7, #cee5d0);
   position: absolute;
 }
+body {
+  align-items: center;
+  padding: 10px;
+  height: 100vh;
+  width: 100vh;
+    background-image: linear-gradient(to bottom right, #f3f0d7, #cee5d0);
+
+}
+
 #close-btn {
   border-radius: 50%;
   width: 20px;
@@ -197,7 +201,6 @@
   cursor: text;
   transition: top 100ms ease-in, left 100ms ease-in, font-size 100ms ease-in;
 }
-
 .form__input:focus ~ .form__label,
 .form__input:not(placeholder-shown) .form__input:not(:focus) ~ .form__label {
   top: -0.5rem;
@@ -205,4 +208,20 @@
   left: 1.2rem;
   background-color: white;
   border-radius: 5px;
+}
+
+.card-container {
+  display: grid;
+  grid-gap: 10px;
+  align-content: center;
+  
+  grid-template-columns: repeat(6, minmax(300px, 1fr));
+  position: absolute;
+  margin: 10px;
+}
+
+.card {
+  background-color: rgb(234, 234, 234);
+  width: 300px;
+  height: 300px;
 }

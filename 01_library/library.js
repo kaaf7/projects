@@ -45,8 +45,10 @@ submitBtn.addEventListener("click", () => {
     bookAuthor.value !== "" &&
     bookYear.value !== "" &&
     bookGenre.value !== ""
-  ) {  alert ("Please fill all the forms")} else  {
-    
+  ) {
+    alert("hi");
+  } else {
+    alert("please insert text");
   }
 });
 
