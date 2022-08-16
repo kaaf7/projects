@@ -21,12 +21,17 @@ const fillFormChildren = document.querySelector(".fill-form").children;
 // const cardBookYear = document.getElementbyId("cardBookYear");
 
 // const cardBookGenre = document.getElementbyId("cardBookGenra");
+
 // const readOrNot;
 
-let library = [];
-let book = { Name: "", Author: "", Year: "", Genre: "" };
-function insertBook(name, author, year, genre) {
+let getBook = { name: "", author: "", year: "", genre: "" };
 
+let myLibrary  = [];
+
+function Book(name, author, year, genre) {}
+
+function addBookToLibrary() {
+  for (i = 0; i <= myLibrary.length; i++) {}
 }
 
 addBtn.addEventListener("click", () => {
@@ -44,12 +49,15 @@ submitBtn.addEventListener("click", () => {
     bookYear.value !== "" &&
     bookGenre.value !== ""
   ) {
+    getBook.name = bookName.value;
+    getBook.author = bookAuthor.value;
+    getBook.year = bookYear.value;
+    getBook.genre = bookGenre.value;
   } else {
-    alert("please insert text");
   }
 });
 
-// submitBtn.addEventListener("click", () => {
+// submitBtn.addEventListener("click"F, () => {
 //   for (let i = 0; i < 10; i++) {
 //     library[i];
 //     alert(library[0].bName);
