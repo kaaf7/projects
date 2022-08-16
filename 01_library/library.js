@@ -14,24 +14,26 @@ const fillForm = document.querySelector(".fill-form");
 
 const fillFormChildren = document.querySelector(".fill-form").children;
 
-// const cardBookName = document.getElementById("cardBookName");
+let myLibrary = [];
 
-// const cardAuthorName = document.getElementbyId("cardAuthorName");
+let book = {
+  Name: "",
+  author: "",
+  year: "",
+  genre: "",
+};
 
-// const cardBookYear = document.getElementbyId("cardBookYear");
-
-// const cardBookGenre = document.getElementbyId("cardBookGenra");
-
-// const readOrNot;
-
-let getBook = { name: "", author: "", year: "", genre: "" };
-
-let myLibrary  = [];
-
-function Book(name, author, year, genre) {}
+function Book(name, author, year, genre) {
+  book.Name = name;
+  book.author = author;
+  book.year = year;
+  book.genre = genre;
+}
 
 function addBookToLibrary() {
-  for (i = 0; i <= myLibrary.length; i++) {}
+  for (i = 0; i <= myLibrary.length; i++) {
+    book(bookName.value, bookAuthor.value, bookYear.value, bookGenre.value);
+  }
 }
 
 addBtn.addEventListener("click", () => {
@@ -56,20 +58,3 @@ submitBtn.addEventListener("click", () => {
   } else {
   }
 });
-
-// submitBtn.addEventListener("click"F, () => {
-//   for (let i = 0; i < 10; i++) {
-//     library[i];
-//     alert(library[0].bName);
-//     return;
-//   }
-// });
-
-// function submitBook() {}
-
-// submitBtn.addEventListener("click", () => {
-//   library.forEach((book) => {
-//     alert(book.bName);
-//     return;
-//   });
-// });
