@@ -30,21 +30,21 @@
   border-radius: 20px;
   padding: 10px;
   visibility: hidden;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
 #header-text {
   font-family: "bebas neue", sans-serif;
   font-size: 45px;
   font-weight: bolder;
-  margin-left: 45%;
   color: black;
   text-align: center;
   width: 100%;
   margin-bottom: 10px;
+  margin-left: auto;
 }
 .body {
   margin: 0;
-
   background-image: linear-gradient(to bottom right, #f3f0d7, #cee5d0);
   position: absolute;
 }
@@ -53,8 +53,7 @@ body {
   padding: 10px;
   height: 100vh;
   width: 100vh;
-    background-image: linear-gradient(to bottom right, #f3f0d7, #cee5d0);
-
+  background-image: linear-gradient(to bottom right, #f3f0d7, #cee5d0);
 }
 
 #close-btn {
@@ -213,15 +212,21 @@ body {
 .card-container {
   display: grid;
   grid-gap: 10px;
-  align-content: center;
-  
+  align-items: center;
+  justify-items: center;
   grid-template-columns: repeat(6, minmax(300px, 1fr));
   position: absolute;
   margin: 10px;
 }
 
 .card {
-  background-color: rgb(234, 234, 234);
-  width: 300px;
+  font-family: "bebas neue";
+  font-weight: light ;
+  color: #252525;
+  text-align: center;
+  background-color: white;
+  width: 250px;
   height: 300px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
 }

@@ -21,15 +21,11 @@ const fillFormChildren = document.querySelector(".fill-form").children;
 // const cardBookYear = document.getElementbyId("cardBookYear");
 
 // const cardBookGenre = document.getElementbyId("cardBookGenra");
+// const readOrNot;
 
-// //const readOrNot;
+let library = [];
+let getook = { Name: "", Author: "", Year: "", Genre: "" };
 
-let library = [
-  { bName: "a", bookAuthor: "b", bookYear: "", bookGenre: "" },
-  { bookName: "a", bookAuthor: "b", bookYear: "", bookGenre: "" },
-];
-
-function populateInput(bName, bAuthor, bookYear, bookG) {}
 
 addBtn.addEventListener("click", () => {
   if (fillForm.style.visibility != "visible") {
@@ -38,6 +34,7 @@ addBtn.addEventListener("click", () => {
     fillForm.style.visibility = "hidden";
   }
 });
+
 
 submitBtn.addEventListener("click", () => {
   if (
