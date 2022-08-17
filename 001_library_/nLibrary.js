@@ -8,6 +8,9 @@ board.style.gridTemplateColumns = "repeat(5,1fr)";
 
 board.style.gridTemplateRows = `repeat(${myLibrary.length},1fr)`;
 
+
+
+
 function createLibrary(library) {
   for (let i = 0; i < library.length; i++) {
     let card = document.createElement("section");
