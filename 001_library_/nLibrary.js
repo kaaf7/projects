@@ -1,18 +1,37 @@
+const addButton = document.querySelector(".add-btn");
+const closeButton = document.querySelector(".close-btn");
+const submitButton = document.querySelector(".submit-btn");
+const formElements = document.querySelector(".form__input-group");
+
+let board = document.querySelector(".board");
+
 let myLibrary = [
   { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
   { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
   { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
   { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
-
 ];
+
+board.style.gridTemplateColumns = "repeat(5,1fr)";
+board.style.gridTemplateRows = `repeat(${myLibrary.length},1fr)`;
 
 let bookObj = { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" };
 
-let board = document.querySelector(".board");
+addButton.addEventListener("click", () => {
+  const fillForm = document.querySelector(".form");
+  if (fillForm.style.visibility === "hidden") {
+    fillForm.style.visibility = "visible";
+  } else {
+    fillForm.style.visibility = "hidden";
+    formElements.style.visibility === "hidden";
+  }
+});
 
-board.style.gridTemplateColumns = "repeat(5,1fr)";
-
-board.style.gridTemplateRows = `repeat(${myLibrary.length},1fr)`;
+closeButton.addEventListener("click", () => {
+  if (fillForm.style.visibility === "visible") {
+    fillForm.style.visibility = "hidden";
+  }
+});
 
 function createLibrary(library) {
   for (let i = 0; i < library.length; i++) {
@@ -21,7 +40,6 @@ function createLibrary(library) {
     let bookAuthor = document.createElement("div");
     let bookYear = document.createElement("div");
     let bookGenre = document.createElement("div");
-
     // <label>did you read?
     // <input type="checkbox" name="peas" />
     // </label>
