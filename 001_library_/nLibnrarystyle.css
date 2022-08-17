@@ -101,7 +101,7 @@ section {
   transition: border 0.25s ease-in-out;
   border: 0.5px solid grey;
   width: 300px;
-  height: 30px;
+  height: 40px;
 }
 .form__input:focus {
   outline: none;
@@ -111,14 +111,19 @@ section {
 .form__input-label {
   position: absolute;
   top: 50%;
+  text-transform: uppercase;
   left: 10px;
   transform: translateY(-50%);
   transition: all 0.25s ease-in-out;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  color: rgb(186, 186, 186);
 }
 
 .form__input:focus ~ .form__input-label {
   top: 0;
-  background-color: #f8f8f8;
+  background-color: white;
   font-size: 14px;
   padding: 0 10px;
 }
