@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.board {
+  margin-top: 150px;
+  max-width: 90%;
+  height: 100vh;
+  display: grid;
+  grid-gap: 30px;
+}
+
+section {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  width: 300px;
+  height: 350px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  justify-content: left;
+  padding: 20px;
+  grid-gap: 50px;
+
+}
+
+.form {
+  position: absolute;
+  width: 350px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  border: none;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
