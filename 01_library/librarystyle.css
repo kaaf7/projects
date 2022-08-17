@@ -20,7 +20,7 @@
 
 .fill-form {
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   margin-left: 37%;
   margin-top: 5%;
   position: absolute;
@@ -75,7 +75,7 @@ body {
   background-color: #ff7878;
   border: 0px;
   font-size: 25px;
-  position: absolute;
+  position: fixed;
   margin-left: 90%;
   margin-top: 40%;
   transition: 0.7;

@@ -1,4 +1,10 @@
-let myLibrary = [];
+let myLibrary = [
+  { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
+  { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
+  { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
+  { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
+
+];
 
 let bookObj = { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" };
 
@@ -7,9 +13,6 @@ let board = document.querySelector(".board");
 board.style.gridTemplateColumns = "repeat(5,1fr)";
 
 board.style.gridTemplateRows = `repeat(${myLibrary.length},1fr)`;
-
-
-
 
 function createLibrary(library) {
   for (let i = 0; i < library.length; i++) {

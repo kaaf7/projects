@@ -5,7 +5,7 @@
 }
 
 p {
-  margin-bottom: 50%;
+  margin-bottom: 60%;
   position: absolute;
   font-size: 40px;
 }
@@ -36,29 +36,25 @@ section {
   padding: 20px;
   grid-gap: 20px;
   font-family: "Courier New", Courier, monospace;
-  background-color: yellow;
+  background-color: rgb(198, 198, 198);
 }
 
-.input {
-  margin: 20px;
-}
 .form {
-  position: absolute;
+  display: grid;
+  position: fixed;
+  grid-template-rows: repeat(7, 1fr);
   width: 350px;
   height: 400px;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   border: none;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  display: grid;
-  grid-template-rows: (3, 1fr);
-  grid-template-columns: (2, 1fr);
-  padding: 10px;
   justify-content: center;
+  align-items: center;
 }
 
-.add-button {
-  position: absolute;
+.add-btn {
+  position: fixed;
   margin-top: 30%;
   margin-left: 80%;
   border-radius: 50%;
@@ -67,6 +63,31 @@ section {
   border: none;
   background-color: blue;
   font-size: 30px;
+}
+.sumbit-btn {
+  width: 300px;
+  height: 50px;
+  background-color: rgb(167, 167, 167);
+  position: relative;
+  margin-bottom: 5px;
+  border:none;
+  border-radius: 7px;
+  font-size: 25px;
+
+}
+.close-btn {
+  display: grid;
+  justify-content: center;
+  margin-left: 90%;
+  margin-top: 0%;
+  margin-bottom: 5px;
+  position: relative;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  border: none;
+  background-color: rgb(77, 77, 165);
+  font-size: 20px;
 }
 
 .form__button {
@@ -87,11 +108,11 @@ section {
 }
 
 .form__input-group {
-  margin: 15px 0;
   width: 100%;
-  height: 30px;
+  height: 40px;
   position: relative;
   display: flex;
+  margin-bottom: 0;
 }
 
 .form__input {
@@ -102,6 +123,7 @@ section {
   border: 0.5px solid grey;
   width: 300px;
   height: 40px;
+  font-size: 17px;
 }
 .form__input:focus {
   outline: none;
@@ -122,6 +144,12 @@ section {
 }
 
 .form__input:focus ~ .form__input-label {
+  top: 0;
+  background-color: white;
+  font-size: 14px;
+  padding: 0 10px;
+}
+.form__input:not(:placeholder-shown) ~ .form__input-label {
   top: 0;
   background-color: white;
   font-size: 14px;
