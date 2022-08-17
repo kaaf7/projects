@@ -1,42 +1,24 @@
-let myLibrary = [
-  {
-    name: "",
-    author: "",
-    year: "",
-    genre: "",
-  },
-  {
-    name: "",
-    author: "",
-    year: "",
-    genre: "",
-  },
-  {
-    name: "",
-    author: "",
-    year: "",
-    genre: "",
-  },
-  {
-    name: "",
-    author: "",
-    year: "",
-    genre: "",
-  },
-];
+let myLibrary = [];
+
 let bookObj = { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" };
 
 let board = document.querySelector(".board");
+
 board.style.gridTemplateColumns = "repeat(5,1fr)";
+
 board.style.gridTemplateRows = `repeat(${myLibrary.length},1fr)`;
 
 function createLibrary(library) {
-  for (let i = 0; i <= library.length; i++) {
+  for (let i = 0; i < library.length; i++) {
     let card = document.createElement("section");
     let bookName = document.createElement("div");
     let bookAuthor = document.createElement("div");
     let bookYear = document.createElement("div");
     let bookGenre = document.createElement("div");
+
+    // <label>did you read?
+    // <input type="checkbox" name="peas" />
+    // </label>
     // let checkBox = document.createElement("INPUT");
     // let checkBoxLabel = document.createElement("label")
     //checkBox.setAttribute("type", "checkbox");
