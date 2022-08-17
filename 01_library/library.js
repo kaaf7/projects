@@ -13,8 +13,38 @@ const submitBtn = document.getElementById("submit-btn");
 const fillForm = document.querySelector(".fill-form");
 
 const fillFormChildren = document.querySelector(".fill-form").children;
+let board = document.querySelector(".board");
+size = 5;
 
-let myLibrary = [];
+board.style.gridTemplateColumns = "repeat(5,1fr)";
+board.style.gridTemplateRows = "repeat(20,1fr)";
+  for (let i = 0; i < 100; i++) {
+    let card = document.createElement("section");
+    card.style.backgroundColor = "yellow"
+    board.insertAdjacentElement("beforeend", card);}
+
+
+
+let myLibrary = [
+  {
+    Name: "",
+    author: "",
+    year: "",
+    genre: "",
+  },
+  {
+    Name: "",
+    author: "",
+    year: "",
+    genre: "",
+  },
+  {
+    Name: "",
+    author: "",
+    year: "",
+    genre: "",
+  },
+];
 
 let bookObj = {
   Name: "",
@@ -59,4 +89,3 @@ submitBtn.addEventListener("click", () => {
 });
 
 myLibrary.push(book("GOT", "Karim", "1993", "aaa"));
-console.log(myLibrary)
