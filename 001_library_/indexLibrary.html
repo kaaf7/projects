@@ -6,33 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/001_library_/nLibrary.js" defer></script>
     <link rel="stylesheet" href="/001_library_/nLibnrarystyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
+      rel="stylesheet"
+    />
     <title>The Libray</title>
   </head>
   <body>
-    <p>Book Library</p>
+    <div class="pageHead">
+      <p>Book Library</p>
+    </div>
 
-    
-      <div class="form">
-        <button class="close-btn">+</button>
-        <div class="form__input-group">
-          <input class="form__input" id="bookName" type="text" placeholder=" " />
-          <label class="form__input-label">Book Name</label>
-        </div>
-        <div class="form__input-group">
-          <input class="form__input" id="bookAuthor" type="text" placeholder=" " />
-          <label class="form__input-label">Book Author</label>
-        </div>
-        <div class="form__input-group">
-          <input class="form__input" id="bookYear" type="text" placeholder=" " />
-          <label class="form__input-label">Release Year</label>
-        </div>
-        <div class="form__input-group">
-          <input class="form__input" id="bookGenre" type="text" placeholder=" " />
-          <label class="form__input-label">Genre</label>
-        </div>
-        <button class="sumbit-btn">submit</button>
+    <div class="form">
+      <button class="close-btn">+</button>
+      <div class="form__input-group">
+        <input class="form__input" id="bookName" type="text" placeholder=" " />
+        <label class="form__input-label">Book Name</label>
       </div>
-    
+      <div class="form__input-group">
+        <input
+          class="form__input"
+          id="bookAuthor"
+          type="text"
+          placeholder=" "
+        />
+        <label class="form__input-label">Book Author</label>
+      </div>
+      <div class="form__input-group">
+        <input class="form__input" id="bookYear" type="text" placeholder=" " />
+        <label class="form__input-label">Release Year</label>
+      </div>
+      <div class="form__input-group">
+        <input class="form__input" id="bookGenre" type="text" placeholder=" " />
+        <label class="form__input-label">Genre</label>
+      </div>
+      <button class="sumbit-btn">submit</button>
+    </div>
+
     <div class="board"></div>
     <button class="add-btn">+</button>
   </body>
