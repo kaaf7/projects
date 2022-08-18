@@ -1,21 +1,19 @@
 const addButton = document.querySelector(".add-btn");
 const closeButton = document.querySelector(".close-btn");
-const submitButton = document.querySelector(".submit-btn");
+const submitButton = document.querySelector(".sumbit-btn");
 const formElements = document.querySelector(".form__input-group");
+const bookNameInput = document.getElementById("bookName");
+const bookAuthorInput = document.getElementById("bookAuthor");
+const bookYearInput = document.getElementById("bookYear");
+const bookGenreInput = document.getElementById("bookGenre");
 
 let board = document.querySelector(".board");
+var bookObj = { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" };
 
-let myLibrary = [
-  { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
-  { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
-  { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
-  { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" },
-];
+let myLibrary = [];
 
 board.style.gridTemplateColumns = "repeat(5,1fr)";
 board.style.gridTemplateRows = `repeat(${myLibrary.length},1fr)`;
-
-let bookObj = { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" };
 
 addButton.addEventListener("click", () => {
   const fillForm = document.querySelector(".form");
@@ -32,6 +30,29 @@ closeButton.addEventListener("click", () => {
     fillForm.style.visibility = "hidden";
   }
 });
+
+submitButton.addEventListener("click", () => {
+  bookObj.bookName = bookNameInput.value;
+  bookObj.AuthorName = bookAuthorInput.value;
+  bookObj.bookYear = bookYearInput.value;
+  bookObj.bookGenre = bookGenreInput.value;
+  myLibrary.push(bookObj);
+
+  bookObj.bookGenre = "";
+  bookNameInput.value = "";
+  bookAuthorInput.value = "";
+  bookYearInput.value = "";
+  bookGenreInput.value = "";
+  console.log(bookObj.bookName);
+});
+
+if (
+  bookNameInput.value !== "" &&
+  bookAuthorInput.value !== "" &&
+  bookYearInput.value !== "" &&
+  bookGenreInput.value !== ""
+) {
+}
 
 function createLibrary(library) {
   for (let i = 0; i < library.length; i++) {
@@ -58,7 +79,7 @@ function createLibrary(library) {
     // card.appendChild(checkBox);
     // card.appendChild(checkBoxLabel);
     board.insertAdjacentElement("beforeend", card);
+    return;
   }
 }
-
-createLibrary(myLibrary);
+console.log(bookObj.AuthorName);
