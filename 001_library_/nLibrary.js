@@ -10,7 +10,7 @@ const bookGenreInput = document.getElementById("bookGenre");
 let board = document.querySelector(".board");
 var bookObj = { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" };
 
-let myLibrary = [];
+let myLibrary = JSON.parse(localStorage.getItem("books")) || [];
 
 board.style.gridTemplateColumns = "repeat(5,1fr)";
 board.style.gridTemplateRows = `repeat(${myLibrary.length},1fr)`;
@@ -37,49 +37,33 @@ submitButton.addEventListener("click", () => {
   bookObj.bookYear = bookYearInput.value;
   bookObj.bookGenre = bookGenreInput.value;
   myLibrary.push(bookObj);
-
+  localStorage.setItem("books", JSON.stringify(myLibrary));
+  createLibrary(myLibrary);
+  bookObj.bookName = "";
+  bookObj.AuthorName = "";
+  bookObj.bookYear = "";
   bookObj.bookGenre = "";
-  bookNameInput.value = "";
-  bookAuthorInput.value = "";
-  bookYearInput.value = "";
-  bookGenreInput.value = "";
-  console.log(bookObj.bookName);
+  return;
 });
 
-if (
-  bookNameInput.value !== "" &&
-  bookAuthorInput.value !== "" &&
-  bookYearInput.value !== "" &&
-  bookGenreInput.value !== ""
-) {
-}
+function CreateBook() {}
 
 function createLibrary(library) {
   for (let i = 0; i < library.length; i++) {
+    library = library[i]; // to add one extra book at a time
     let card = document.createElement("section");
     let bookName = document.createElement("div");
     let bookAuthor = document.createElement("div");
     let bookYear = document.createElement("div");
     let bookGenre = document.createElement("div");
-    // <label>did you read?
-    // <input type="checkbox" name="peas" />
-    // </label>
-    // let checkBox = document.createElement("INPUT");
-    // let checkBoxLabel = document.createElement("label")
-    //checkBox.setAttribute("type", "checkbox");
     bookName.innerHTML = "book Name";
     bookAuthor.innerHTML = "book Author";
     bookYear.innerHTML = "Book Year";
     bookGenre.innerHTML = "Book Genre";
-    // checkBoxLabel.innerHTML = "Read?"
     card.appendChild(bookName);
     card.appendChild(bookAuthor);
     card.appendChild(bookYear);
     card.appendChild(bookGenre);
-    // card.appendChild(checkBox);
-    // card.appendChild(checkBoxLabel);
     board.insertAdjacentElement("beforeend", card);
-    return;
   }
 }
-console.log(bookObj.AuthorName);
