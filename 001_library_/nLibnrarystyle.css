@@ -51,7 +51,7 @@ section {
   justify-content: center;
 }
 
-.form {
+.form {margin-top: 20%;
   display: grid;
   position: fixed;
   grid-template-rows: repeat(7, 1fr);
@@ -71,7 +71,7 @@ section {
 
 .add-btn {
   position: fixed;
-  margin-top: 40%;
+  margin-top: 70%;
   margin-left: 80%;
   border-radius: 50%;
   height: 55px;
