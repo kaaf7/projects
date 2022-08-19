@@ -64,7 +64,8 @@ function CreateBook() {
 
 function createLibraryCard(library) {
   for (let i = 0; i < library.length; i++) {
-    library = library[i]; // to add one book at a time
+    library = library[i];
+    // to add one book at a time
     let card = document.createElement("section");
     let btn = document.createElement("button");
     let bookName = document.createElement("div");
@@ -81,16 +82,21 @@ function createLibraryCard(library) {
     btn.style.border = "none";
     btn.style.background = "#F4D19B";
     btn.style.fontFamily = "Bebas Neue";
-    btn.style.borderRadius ="5px" 
+    btn.style.borderRadius = "5px";
     card.appendChild(bookName);
     card.appendChild(bookAuthor);
     card.appendChild(bookYear);
     card.appendChild(bookGenre);
     card.appendChild(btn);
     board.insertAdjacentElement("beforeend", card);
-    btn.addEventListener("click", () => {
-      var ind = library.findIndex(card);
-      console.log(ind);
-    });
+
+    btn.addEventListener("click", () => {});
   }
 }
+function removeBook(lib) {
+  //lib.splice(2, 1);
+  lib.clear();
+  console.table(lib[1]);
+}
+
+removeBook(myLibrary);
