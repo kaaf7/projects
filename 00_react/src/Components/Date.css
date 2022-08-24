@@ -1,10 +1,10 @@
-.title {
+.date {
     display: grid;
     position: relative;
     justify-content: center;
     justify-items: center;
     width: 100%;
-    background-color: rgb(175, 73, 9);
+    background-color: rgb(36, 255, 193);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
     margin: auto;
