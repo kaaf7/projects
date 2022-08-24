@@ -1,0 +1,11 @@
+.amounts {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    background-color: rgb(152, 221, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    margin: auto;
+}
