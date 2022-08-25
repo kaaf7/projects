@@ -8,16 +8,18 @@ import ExpenseItem from "./Components/ExpenseItem";
 import Title from "./Components/Title";
 import Amount from "./Components/Amount";
 import Date from "./Components/Date";
+import Card from "./Components/Card";
 function App() {
   return (
-    <div>
-      <Title></Title>
+    <Card>
+      <Title headline=" this is  headline"></Title>
       <Date></Date>
       <Amount></Amount>
-      <ExpenseItem></ExpenseItem>
-      <Header></Header>
-      <p>react pragaraph</p>
-    </div>
+      <ExpenseItem
+        expenses="these are expenses"
+        newexpenses=" these are new expenses"
+      ></ExpenseItem>
+    </Card>
   );
 }
 
