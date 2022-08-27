@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="/odinproject/etchsketch.js" defer></script>
+    <link rel="stylesheet" href="/odinproject/etchsketch.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container1st">
+      <div class="btn-container">
+        <button
+          onclick="submitEvent()"
+          type="submit"
+          class="main-btn"
+          id="restart-btn"
+        >
+          change grid
+        </button>
+        <button
+          onclick="changeColor('black')"
+          class="main-btn"
+          id="change-btn"
+        >
+          Black
+        </button>
+        <button
+          onclick="changeColor('white')"
+          class="main-btn"
+          id="change-btn"
+        >
+          White
+        </button>
+        <button
+          onclick="changeColor('random')"
+          class="main-btn"
+          id="change-btn"
+        >
+          Random
+        </button>
+        <button
+          onclick="resetBoard()"
+          
+          class="main-btn"
+          id="change-btn"
+        >
+          Reset Board
+        </button>
+      </div>
+      <input type="text" placeholder="Site of Board" value="16" onchange="changeSize(this.value)">
+      <button> Set Size</button>
+    </div>
+    <div class="wrapper">
+      <div id="container"></div>
+    </div>
+  </body>
+</html>
