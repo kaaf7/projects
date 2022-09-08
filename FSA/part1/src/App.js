@@ -33,9 +33,7 @@ const App = () => {
           name={course.parts[2].name}
           exercise={course.parts[2].exercises}
         />
-        <Footer
-          exerciseNumber={exerciseNum}
-          exerciseCount={
+        <Footer exerciseNumber={exerciseNum} exerciseCount={
             course.parts[0].exercises +
             course.parts[1].exercises +
             course.parts[2].exercises
