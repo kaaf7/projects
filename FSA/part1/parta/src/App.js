@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import NewFeedBackHeader from "./NewFeedBackHeader";
 import NewButton from "./NewButton";
 import { useState } from "react";
-
+import Body from "./Body";
 
 const App = () => {
   const [good, setGood] = useState(0);
@@ -15,10 +15,14 @@ const App = () => {
   const [bad, setBad] = useState(0);
   return (
     <div>
-      <NewFeedBackHeader headerText="give feedback"  className="fHeader"/>
-      <NewButton buttonText ="good"/>
-      <NewButton buttonText ="neutral" />
-      <NewButton buttonText ="bad" />
+      <NewFeedBackHeader headerText="give feedback" className="fHeader" />
+      <NewButton buttonText="good" />
+      <NewButton buttonText="neutral" />
+      <NewButton buttonText="bad" />
+      <Body bodyText="statistics" />
+      <Body bodyText={"good" +" "+ good} />
+      <Body bodyText={"neutral" +" "+ neutral}  />
+      <Body bodyText={"bad" +" "+ bad}  />
     </div>
   );
 
