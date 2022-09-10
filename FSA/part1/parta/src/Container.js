@@ -1,7 +1,7 @@
 const Container = (props) => {
   return (
     <div className="Container">
-      <p>{props.children} +</p>
+      <p>{props.children}</p>
     </div>
   );
 };

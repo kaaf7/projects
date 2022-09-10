@@ -1,4 +1,4 @@
 const NewButton = (props) => {
-  return <button onClick={props.handClick}>{props.buttonText}</button>;
+  return <button onClick={props.handleClick}>{props.buttonText}</button>;
 };
 export default NewButton;

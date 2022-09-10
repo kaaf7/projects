@@ -8,22 +8,67 @@ import NewFeedBackHeader from "./NewFeedBackHeader";
 import NewButton from "./NewButton";
 import { useState } from "react";
 import Body from "./Body";
-
 const App = () => {
+  //useStates for all states
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const [show, setShow] = useState(true);
+
+  // handling changes in rating
+  const handleGoodResults = () => {
+    setGood(good + 1);
+    console.log(good);
+  };
+  const handleBadResults = () => {
+    setBad(bad + 1);
+    console.log(bad);
+  };
+  const handleNeutralResults = () => {
+    setNeutral(neutral + 1);
+    console.log(neutral);
+  };
+  // variables for average ratings and percentages
+  const averageNumbers = Math.floor((good + neutral) / 3);
+  const totalRating = good + bad + neutral;
+
+  //condition for when to show the rating percentage
+  let positiveRatingpercentage = 0;
+  if (good == 0 && bad == 0 && neutral == 0) {
+    positiveRatingpercentage = 0;
+  } else {
+    positiveRatingpercentage = (good / totalRating).toLocaleString("en", {
+      style: "percent",
+    });
+  }
+
+  const Statistics = () => {
+    return (
+      <div>
+        <Body ratingNumber={"good" + " " + good} />
+        <Body ratingNumber={"neutral" + " " + neutral} />
+        <Body ratingNumber={"bad" + " " + bad} />
+        <Body bodyIndication="all" ratingNumber={totalRating} />
+        <Body bodyIndication="average" ratingNumber={averageNumbers} />
+        <Body
+          bodyIndication="positive"
+          ratingNumber={positiveRatingpercentage}
+        />
+      </div>
+    );
+  };
+
   return (
-    <div>
+    <Container>
       <NewFeedBackHeader headerText="give feedback" className="fHeader" />
-      <NewButton buttonText="good" />
-      <NewButton buttonText="neutral" />
-      <NewButton buttonText="bad" />
-      <Body bodyText="statistics" />
-      <Body bodyText={"good" +" "+ good} />
-      <Body bodyText={"neutral" +" "+ neutral}  />
-      <Body bodyText={"bad" +" "+ bad}  />
-    </div>
+      <Container>
+        <NewButton buttonText="good" handleClick={handleGoodResults} />
+        <NewButton buttonText="neutral" handleClick={handleNeutralResults} />
+        <NewButton buttonText="bad" handleClick={handleBadResults} />
+      </Container>
+      <Body ratingNumber="statistics" />
+      <Container>{show  && <Statistics />}</Container>
+    </Container>
   );
 
   /*  const exerciseNum = "Number of exercises";
