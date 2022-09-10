@@ -13,20 +13,29 @@ const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   // handling changes in rating
   const handleGoodResults = () => {
     setGood(good + 1);
-    console.log(good);
+    setShow(true);
   };
   const handleBadResults = () => {
     setBad(bad + 1);
-    console.log(bad);
+    setShow(true);
+
   };
   const handleNeutralResults = () => {
     setNeutral(neutral + 1);
-    console.log(neutral);
+    setShow(true);
+
+  };
+
+  const handleResults = () => {
+    setGood(0);
+    setBad(0);
+    setNeutral(0);
+    setShow(false)
   };
   // variables for average ratings and percentages
   const averageNumbers = Math.floor((good + neutral) / 3);
@@ -58,6 +67,10 @@ const App = () => {
     );
   };
 
+  const NoDataComp = () => {
+    return <p>no data to display</p>;
+  };
+
   return (
     <Container>
       <NewFeedBackHeader headerText="give feedback" className="fHeader" />
@@ -65,9 +78,10 @@ const App = () => {
         <NewButton buttonText="good" handleClick={handleGoodResults} />
         <NewButton buttonText="neutral" handleClick={handleNeutralResults} />
         <NewButton buttonText="bad" handleClick={handleBadResults} />
+        <NewButton buttonText="reset" handleClick={handleResults} />
       </Container>
       <Body ratingNumber="statistics" />
-      <Container>{show  && <Statistics />}</Container>
+      <Container>{show ? <Statistics /> : <NoDataComp />}</Container>
     </Container>
   );
 
