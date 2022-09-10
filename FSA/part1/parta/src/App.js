@@ -4,9 +4,25 @@ import Container from "./Container";
 import ExerciseComponent from "./ExerciseComponent";
 import PartComponent from "./PartComponent";
 import Footer from "./Footer";
+import NewFeedBackHeader from "./NewFeedBackHeader";
+import NewButton from "./NewButton";
+import { useState } from "react";
+
 
 const App = () => {
-  const exerciseNum = "Number of exercises";
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+  return (
+    <div>
+      <NewFeedBackHeader headerText="give feedback"  className="fHeader"/>
+      <NewButton buttonText ="good"/>
+      <NewButton buttonText ="neutral" />
+      <NewButton buttonText ="bad" />
+    </div>
+  );
+
+  /*  const exerciseNum = "Number of exercises";
 
   const course = {
     name: "Half Stack application development",
@@ -25,6 +41,7 @@ const App = () => {
           name={course.parts[0].name}
           exercise={course.parts[0].exercises}
         />
+        
         <PartComponent
           name={course.parts[1].name}
           exercise={course.parts[1].exercises}
@@ -43,8 +60,7 @@ const App = () => {
     );
   };
 
-  console.log(Header);
-  return <FullPage />;
+  console.log(Header); */
 };
 
 export default App;
