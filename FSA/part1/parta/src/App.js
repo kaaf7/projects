@@ -9,11 +9,22 @@ import NewButton from "./NewButton";
 import { useState } from "react";
 import Body from "./Body";
 const App = () => {
+  const anecdotes = [
+    "If it hurts, do it more often.",
+    "Adding manpower to a late software project makes it later!",
+    "The first 90 percent of the code accounts for the first 10 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
+    "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+    "Premature optimization is the root of all evil.",
+    "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
+    "Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.",
+  ];
+
   //useStates for all states
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
   const [show, setShow] = useState(false);
+  const [selected, setSelected] = useState(0)
 
   // handling changes in rating
   const handleGoodResults = () => {
@@ -23,19 +34,17 @@ const App = () => {
   const handleBadResults = () => {
     setBad(bad + 1);
     setShow(true);
-
   };
   const handleNeutralResults = () => {
     setNeutral(neutral + 1);
     setShow(true);
-
   };
 
   const handleResults = () => {
     setGood(0);
     setBad(0);
     setNeutral(0);
-    setShow(false)
+    setShow(false);
   };
   // variables for average ratings and percentages
   const averageNumbers = Math.floor((good + neutral) / 3);
@@ -82,6 +91,8 @@ const App = () => {
       </Container>
       <Body ratingNumber="statistics" />
       <Container>{show ? <Statistics /> : <NoDataComp />}</Container>
+      <Container><Body ratingNumber="anecdotes of the day" /></Container>
+
     </Container>
   );
 
