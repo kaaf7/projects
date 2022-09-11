@@ -19,6 +19,7 @@ const App = () => {
     "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
     "Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.",
   ];
+
   let randomAnecdotes = anecdotes[Math.floor(Math.random() * anecdotes.length)];
   //useStates for all states
   const [good, setGood] = useState(0);
@@ -26,6 +27,9 @@ const App = () => {
   const [bad, setBad] = useState(0);
   const [show, setShow] = useState(false);
   const [selected, setSelected] = useState(0);
+  const [votes, setVotes] = useState(Array.from(anecdotes).fill(0));
+  // const arrayOfAnecdotes = anecdotes.map((anecdote) => ({ anecdote }));
+  // arrayOfAnecdotes.forEach((element) => (element.rating = votes));
 
   // handling changes in rating
   const handleGoodResults = () => {
@@ -53,12 +57,25 @@ const App = () => {
     setSelected(Math.floor(Math.random() * lengthOfArray));
   };
 
-  const rateAnecdotes = () => {};
+  const handleVotes = () => {
+    const newVotes = [...votes];
+    newVotes[selected] += 1;
+    setVotes(newVotes);
+  };
 
+  const handlDownVote = () => {
+    const downVotes = [...votes];
+    downVotes[selected] -= 1;
+    setVotes(downVotes)
+  };
+
+  let maximumNuber = Math.max(...votes);
+  const index = votes.indexOf(maximumNuber);
+  console.log(maximumNuber);
+  console.log(anecdotes[index]);
   // variables for average ratings and percentages
   const averageNumbers = Math.floor((good + neutral) / 3);
   const totalRating = good + bad + neutral;
-
   //condition for when to show the rating percentage
   let positiveRatingpercentage = 0;
   if (good == 0 && bad == 0 && neutral == 0) {
@@ -100,16 +117,21 @@ const App = () => {
       </Container>
       <Body ratingNumber="statistics" />
       <Container>{show ? <Statistics /> : <NoDataComp />}</Container>
-
       <Container>
-        <Body ratingNumber={anecdotes[selected]} />
+        <Body bodyIndication="Anectodes of the day" />
       </Container>
       <Container>
-        <NewButton
-          buttonText="select anecdotes"
-          handleClick={handleAnecdotes}
-        />
-        <NewButton buttonText="rate anecdotes" handleClick />
+        <Body bodyIndication={anecdotes[selected]} />
+        <Body bodyIndication={votes[selected]} />
+      </Container>
+      <Container>
+        <NewButton buttonText="vote" handleClick={handleVotes} />
+        <NewButton buttonText="down vote" handleClick={handlDownVote} />
+        <NewButton buttonText="next anecdotes" handleClick={handleAnecdotes} />
+        <Container>
+          <Body bodyIndication="Anectodes with most votes" />
+        </Container>
+        <Body bodyIndication={anecdotes[index]} />{" "}
       </Container>
     </Container>
   );
