@@ -8,6 +8,7 @@ import NewFeedBackHeader from "./NewFeedBackHeader";
 import NewButton from "./NewButton";
 import { useState } from "react";
 import Body from "./Body";
+
 const App = () => {
   const anecdotes = [
     "If it hurts, do it more often.",
@@ -18,13 +19,13 @@ const App = () => {
     "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
     "Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.",
   ];
-
+  let randomAnecdotes = anecdotes[Math.floor(Math.random() * anecdotes.length)];
   //useStates for all states
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
   const [show, setShow] = useState(false);
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(0);
 
   // handling changes in rating
   const handleGoodResults = () => {
@@ -46,6 +47,14 @@ const App = () => {
     setNeutral(0);
     setShow(false);
   };
+
+  const handleAnecdotes = () => {
+    const lengthOfArray = anecdotes.length;
+    setSelected(Math.floor(Math.random() * lengthOfArray));
+  };
+
+  const rateAnecdotes = () => {};
+
   // variables for average ratings and percentages
   const averageNumbers = Math.floor((good + neutral) / 3);
   const totalRating = good + bad + neutral;
@@ -91,8 +100,17 @@ const App = () => {
       </Container>
       <Body ratingNumber="statistics" />
       <Container>{show ? <Statistics /> : <NoDataComp />}</Container>
-      <Container><Body ratingNumber="anecdotes of the day" /></Container>
 
+      <Container>
+        <Body ratingNumber={anecdotes[selected]} />
+      </Container>
+      <Container>
+        <NewButton
+          buttonText="select anecdotes"
+          handleClick={handleAnecdotes}
+        />
+        <NewButton buttonText="rate anecdotes" handleClick />
+      </Container>
     </Container>
   );
 
