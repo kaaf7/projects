@@ -63,7 +63,7 @@ const App = () => {
     setVotes(newVotes);
   };
 
-  const handlDownVote = () => {
+  const handleDownVote = () => {
     const downVotes = [...votes];
     downVotes[selected] -= 1;
     setVotes(downVotes)
@@ -126,10 +126,10 @@ const App = () => {
       </Container>
       <Container>
         <NewButton buttonText="vote" handleClick={handleVotes} />
-        <NewButton buttonText="down vote" handleClick={handlDownVote} />
+        <NewButton buttonText="down vote" handleClick={handleDownVote} />
         <NewButton buttonText="next anecdotes" handleClick={handleAnecdotes} />
         <Container>
-          <Body bodyIndication="Anectodes with most votes" />
+          <Body bodyIndication="Anectodes with most votes : " />
         </Container>
         <Body bodyIndication={anecdotes[index]} />{" "}
       </Container>
