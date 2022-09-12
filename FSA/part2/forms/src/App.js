@@ -1,38 +1,66 @@
 import { useState } from "react";
 import Note from "./Note";
 
+
+
+
+
+
+
+
 const App = (props) => {
-  const [notes, setNotes] = useState(props.notes);
-  const [newNotes, setNewNotes] = useState("a new note");
+  const [notes, setNote] = useState(props.notes);
+  const [newNote, setNewNote] = useState("");
   const [showAll, setShowAll] = useState(true);
 
-  const notesToShow = showAll
-    ? notes
-    : notes.filter((note) => note.important === true);
+  const setFalseOrTrue = (e) => {
+    e.preventDefault();
+    setShowAll(!showAll);
+  };
 
-  const addNote = (event) => {
-    event.preventDefault();
-    console.log("button clicked", event.target);
+  const handleInput = (e) => {
+    e.preventDefault();
+    setNewNote(e.target.value);
   };
-  const handleNoteChange = (event) => {
-    event.preventDefault();
-    console.log(event.target.value);
-    setNewNotes(event.target.value);
+
+  const saveNotes = (e) => {
+    e.preventDefault();
+    const injectedObject = {
+      id: notes.lengt + 1,
+      content: newNote,
+      date: new Date().toISOString(),
+      important: Math.random() < 0.5,
+    };
+
+    setNote(notes.concat(injectedObject));
+    setNewNote("");
   };
+
+  const isitImportant = showAll
+    ? notes.filter((note) => note.important === true)
+    : notes;
+
+
   return (
     <div>
       <h1>Notes</h1>
+      <div>
+        <button onClick={setFalseOrTrue}>
+          show {showAll ? "All" : "Important"}
+        </button>
+      </div>
       <ul>
-        {notesToShow.map((note) => (
+        {notes.map((note) => (
           <Note key={note.id} note={note} />
-        ))}
+        ))}{" "}
+        <form onSubmit={saveNotes}>
+          <input value={newNote} onChange={handleInput}></input>
+          <button type="submit">Save</button>
+        </form>
       </ul>
-      <form onSubmit={addNote}>
-        <input value={newNotes} onChange={handleNoteChange} />
-        <button type="sumbit">Save</button>
-      </form>
     </div>
   );
+
 };
 
 export default App;
