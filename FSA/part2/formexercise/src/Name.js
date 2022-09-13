@@ -1,5 +1,5 @@
 const Name = ({ name }) => {
-  return <p>{name.name}</p>;
+  return <p>{name.name} {name.number}</p>;
 };
 
 export default Name;
