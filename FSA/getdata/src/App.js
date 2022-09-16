@@ -1,12 +1,14 @@
 import axios from "axios";
+import { useForm } from "rc-field-form";
 import React from "react";
 import { useState, useEffect } from "react";
-import Country from "../../../getdata/src/Country";
+import Country from "./Country";
 
 const App = () => {
   const [countries, setCountry] = useState([]);
   const [searchedCountry, setSearchedCountry] = useState("");
- 
+  const [countryName, setCountryName] = useState("");
+  const [allanguages, setAllLanguages] = useState([]);
 
   const hook = () => {
     console.log("effect");
@@ -21,13 +23,17 @@ const App = () => {
 
   const onChangeOfInput = (e) => {
     setSearchedCountry(e.target.value);
+    setCountryName(e.target.value);
+    console.log(allanguages);
   };
 
-  const handleSearchBarValue = (text) => {
-    console.log(text.name);
-    setSearchedCountry(text.name);
-    setCountry()
-    console.log();
+  const handleSearchBarValue = (country) => {
+    setSearchedCountry(country.name);
+    setCountryName(country);
+    const languages = Array.from(country.languages);
+    setAllLanguages(languages);
+    console.log(country.flag)
+    console.log(country.weather)
   };
 
   const searchFilter = countries
@@ -41,17 +47,24 @@ const App = () => {
 
   return (
     <div>
-      Search Country:{" "}
+      find countries:{" "}
       <input value={searchedCountry} onChange={onChangeOfInput}></input>
       <div>
         {searchFilter &&
           searchFilter.map((country, i) => (
             <div onClick={() => handleSearchBarValue(country)} key={i}>
               {country.name}
+              <button>Show</button>
+      
             </div>
           ))}
-        <Country country={country}/>
       </div>
+      <Country
+        value={searchedCountry}
+        country={countryName}
+        languages={allanguages}
+      />
+      
     </div>
   );
 };
