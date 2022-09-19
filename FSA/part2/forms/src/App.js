@@ -2,11 +2,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Note from "./Note";
 import noteServices from "./services/notes";
+import { v4 as uuidv4 } from "uuid";
 
 const App = () => {
   const [notes, setNote] = useState([]);
   const [newNote, setNewNote] = useState("");
   const [showAll, setShowAll] = useState(true);
+
+  const deleteElementOf = (id) => {
+    noteServices.deleteElement(id).then((response) => setNote(response));
+  };
 
   const toggleImportanceOf = (id) => {
     // const url = `http://localhost:3002/notes/${id}`;
@@ -33,20 +38,21 @@ const App = () => {
 
   const saveNotes = (e) => {
     e.preventDefault();
+    let myId = uuidv4();
     const injectedObject = {
-      id: notes.length + 1,
+      id: myId,
       content: newNote,
       date: new Date().toISOString(),
       important: Math.random() < 0.5,
     };
+    noteServices.create(injectedObject).then((response) => {
+      setNote(notes.concat(response));
+      setNewNote("");
+    });
 
-    setNote(notes.concat(injectedObject));
-    setNewNote("");
+    // setNote(notes.concat(injectedObject));
+    // setNewNote("");
   };
-
-  const isitImportant = showAll
-    ? notes.filter((note) => note.important === true)
-    : notes;
 
   return (
     <div>
@@ -62,6 +68,7 @@ const App = () => {
             key={note.id}
             note={note}
             toggleImportance={() => toggleImportanceOf(note.id)}
+            deleteElement={() => deleteElementOf(note.id)}
           />
         ))}{" "}
         <form onSubmit={saveNotes}>
