@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Country from "./Country";
 
 const App = () => {
+  const age = 1;
   const [countries, setCountry] = useState([]);
   const [searchedCountry, setSearchedCountry] = useState("");
   const [countryName, setCountryName] = useState("");

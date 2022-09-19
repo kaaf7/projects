@@ -11,10 +11,18 @@ const clearButton = document.getElementById("clear-operator");
 const equalButtons = document.getElementById("equal");
 
 const zeroButton = document.getElementById("zero-btn");
+const newApp = 1;
+
+const object = { newname,age };
+const karim = object;
+karim.newName= "karim";
+karim.age = 32;
+const x = 1
+const app = express()
 
 let currentNum = "";
 let previousNum = "";
-let operator = "";
+let operator = ""
 
 bStepButton.addEventListener("click", () => {
   if (currentNum.length > 0) {

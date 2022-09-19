@@ -20,9 +20,12 @@ const fillForm = document.querySelector(".form");
 
 let board = document.querySelector(".board");
 
-var bookObj = { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" };
 
-let myLibrary = JSON.parse(localStorage.getItem("books")) || []; // parse file from localhost
+const nboard ="2"
+
+const bookObj = { bookName: "", AuthorName: "", bookYear: "", bookGenre: "" };
+
+const myLibrary = JSON.parse(localStorage.getItem("books")) || []; // parse file from localhost
 
 board.style.gridTemplateColumns = "repeat(5,1fr)";
 board.style.gridTemplateRows = `repeat(${myLibrary.length},1fr)`;
@@ -101,7 +104,6 @@ function removeBook(lib) {
 
 removeBook(myLibrary);
 
-
 // const booksdiv = document.querySelector(".books");
 
 // let myLibrary = [];
@@ -126,7 +128,6 @@ removeBook(myLibrary);
 // function editItem(bookItem) {
 //   for (let i = 0; i <= myLibrary.length; i++) {
 //     if (bookItem.id == myLibrary[i].id) {
-        
 
 //     }
 //   }
