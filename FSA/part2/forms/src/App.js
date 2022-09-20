@@ -38,20 +38,19 @@ const App = () => {
 
   const saveNotes = (e) => {
     e.preventDefault();
-    let myId = uuidv4();
-    const injectedObject = {
-      id: myId,
-      content: newNote,
-      date: new Date().toISOString(),
-      important: Math.random() < 0.5,
-    };
-    noteServices.create(injectedObject).then((response) => {
-      setNote(notes.concat(response));
-      setNewNote("");
-    });
-
-    // setNote(notes.concat(injectedObject));
-    // setNewNote("");
+    if (newNote !== "") {
+      let myId = uuidv4();
+      const injectedObject = {
+        id: myId,
+        content: newNote,
+        date: new Date().toISOString(),
+        important: Math.random() < 0.5,
+      };
+      noteServices.create(injectedObject).then((response) => {
+        setNote(notes.concat(response));
+        setNewNote("");
+      });
+    }
   };
 
   return (
