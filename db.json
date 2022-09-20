@@ -1,18 +1,6 @@
 {
   "notes": [
     {
-      "id": 3,
-      "content": "a",
-      "date": "2022-09-19T21:51:44.464Z",
-      "important": false
-    },
-    {
-      "id": 5,
-      "content": "a",
-      "date": "2022-09-19T21:51:47.646Z",
-      "important": true
-    },
-    {
       "id": 88,
       "content": "new element",
       "date": "2022-09-19T22:01:25.495Z",

@@ -5,8 +5,15 @@
   "main": "backendserver.js",
   "scripts": {
     "start": "node backendserver.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec 'npm run start'"
   },
   "author": "karim",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
