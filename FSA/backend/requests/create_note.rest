@@ -1,6 +1,8 @@
-POST http://localhost:3008/api/notes
+POST http://localhost:4070/persons
+
 Content-Type: :application/json
 {
-    "content":"VS Code REST Client",
-    "important":false
+     "id": 5,
+    "name": "Arto",
+    "number": "040-123456",
 }

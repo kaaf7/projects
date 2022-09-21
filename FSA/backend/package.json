@@ -4,9 +4,9 @@
   "description": "\"\"",
   "main": "backendserver.js",
   "scripts": {
-    "start": "node backendserver.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec 'npm run start'"
+    "dev": "nodemon app.js"
   },
   "author": "karim",
   "license": "ISC",
