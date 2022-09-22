@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 app.use(express.json());
+const cors = require('cors')
+
 
 let persons = [
   {
@@ -43,7 +45,7 @@ app.get("/info", (req, res) => {
 app.get("/persons/:id", (req, res) => {
   const id = Number(req.params.id);
   const person = persons.find((person) => {
-    return person.id === id;
+  return person.id === id;
   });
   if (person) {
     res.send(person);

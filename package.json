@@ -2,6 +2,7 @@
   "dependencies": {
     "antd": "^4.23.1",
     "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

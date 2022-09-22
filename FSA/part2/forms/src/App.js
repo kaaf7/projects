@@ -51,6 +51,7 @@ const App = () => {
         setNewNote("");
       });
     }
+
   };
 
   return (
