@@ -1,8 +1,10 @@
 const express = require("express");
-const app = express();
-app.use(express.json());
-const cors = require('cors')
 
+const app = express();
+
+app.use(express.json());
+
+const cors = require('cors')
 
 let persons = [
   {
@@ -89,4 +91,4 @@ app.delete("/persons/:id", (res, req) => {
   res.status(204).end();
 });
 
-app.listen(4070, () => console.log("Server running on port 3000!"));
+app.listen(3002, () => console.log("Server running on port 3000!"));
