@@ -8,6 +8,9 @@ const cors = require("cors");
 
 app.use(cors());
 
+const PORT = process.env.PORT || 9090;
+
+
 let persons = [
   {
     id: 88,
@@ -60,7 +63,7 @@ let persons = [
 ];
 
 //get section
-app.get("/", (req, res) => res.send("newbacend"));
+app.get("/", (req, res) => res.send("new backend server"));
 
 app.get("/notes", (req, res) => {
   res.status(200).json(persons);
@@ -122,4 +125,4 @@ app.delete("/notes/:id", (res, req) => {
   res.status(204).end();
 });
 
-app.listen(9090, () => console.log("Server running on port 3000!"));
+app.listen(PORT, () => console.log("Server running on port 3000!"));
