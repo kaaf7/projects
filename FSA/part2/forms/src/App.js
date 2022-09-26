@@ -9,7 +9,8 @@ const App = () => {
   const [showAll, setShowAll] = useState(true);
 
   const deleteElementOf = (id) => {
-    noteServices.deleteElement(id).then((response) => setNote(response));
+    noteServices.deleteElement(id).then((response) => setNote(response)
+    );
   };
 
   const toggleImportanceOf = (id) => {
@@ -39,7 +40,7 @@ const App = () => {
     e.preventDefault();
     if (newNote !== "") {
       let myId = uuidv4();
-      const injectedObject = {
+      let injectedObject = {
         id: myId,
         content: newNote,
         date: new Date().toISOString(),

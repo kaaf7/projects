@@ -2,7 +2,6 @@ import axios from "axios";
 
 const baseUrl = "/notes";
 
-
 /* "http://localhost:3001/notes";
  */
 const getData = () => {
@@ -25,9 +24,10 @@ const update = (id, newObject) => {
   return request.then((response) => response.data);
 };
 
-const deleteElement = (id) => {
+const deleteElement = (id, e) => {
+  e.preventDefault();
   const request = axios.delete(`${baseUrl}/${id}`);
-  return request.then(() => getData());
+  return request.then(() => getData()).catch((err) => console.log(err));
 };
 
 export default { getAll, create, update, deleteElement };
