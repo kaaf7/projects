@@ -1,11 +1,22 @@
 const express = require("express");
 
+const mongoose = require("mongoose");
 const app = express();
 
 app.use(express.json());
 
-
+const uri ="mongodb+srv://kaaf7:<Karimamerkk1___>@cluster0.0wdvheg.mongodb.net/?retryWrites=true&w=majoritymongodb+srv://kaaf7:<password>@cluster0.0wdvheg.mongodb.net/?retryWrites=true&w=majority";
 const cors = require("cors");
+
+async function connectToMongoDb() {
+  try {
+    await mongoose.connect(uri);
+    console.log("conncted");
+  } catch (error) {
+    console.error(error);
+  }
+}
+connectToMongoDb();
 
 app.use(cors());
 
