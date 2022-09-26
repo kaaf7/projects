@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const url = "";
 const mongoose = require("mongoose");
+const { default: Note } = require("../../part2/forms/src/Note");
 
 const noteSchema = mongoose.noteSchema({
   content: String,
@@ -10,7 +11,7 @@ const noteSchema = mongoose.noteSchema({
   date: Date,
 });
 
-const Notes = mongoose.model("Note", noteSchema);
+const Note = mongoose.model("Note", noteSchema);
 mongoose
   .connect(url)
   .then((results) => {
@@ -23,6 +24,7 @@ mongoose
     return note.save();
   })
   .then(() => {
-    console.log("data is saved")
+    console.log("data is saved");
     mongoose.connection.close();
   });
+
