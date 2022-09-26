@@ -4,12 +4,14 @@ const app = express();
 
 app.use(express.json());
 
+
 const cors = require("cors");
 
 app.use(cors());
 
-const PORT = process.env.PORT || 9090;
+app.use(express.static("build"));
 
+const PORT = process.env.PORT || 5000;
 
 let persons = [
   {
