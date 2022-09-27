@@ -1,22 +1,12 @@
 const express = require("express");
-
-const mongoose = require("mongoose");
 const app = express();
-
 app.use(express.json());
+const Note = require("./models/note");
 
-const uri ="mongodb+srv://kaaf7:<Karimamerkk1___>@cluster0.0wdvheg.mongodb.net/?retryWrites=true&w=majoritymongodb+srv://kaaf7:<password>@cluster0.0wdvheg.mongodb.net/?retryWrites=true&w=majority";
+const uri =
+  "mongodb+srv://kaaf7:karim@cluster0.0wdvheg.mongodb.net/?retryWrites=true&w=majoritymongodb+srv://kaaf7:<password>@cluster0.0wdvheg.mongodb.net/?retryWrites=true&w=majority";
+
 const cors = require("cors");
-
-async function connectToMongoDb() {
-  try {
-    await mongoose.connect(uri);
-    console.log("conncted");
-  } catch (error) {
-    console.error(error);
-  }
-}
-connectToMongoDb();
 
 app.use(cors());
 
@@ -24,7 +14,7 @@ app.use(express.static("build"));
 
 const PORT = process.env.PORT || 5000;
 
-let persons = [
+let notes = [
   {
     id: 88,
     content: "new element",
@@ -79,11 +69,11 @@ let persons = [
 app.get("/", (req, res) => res.send("new backend server"));
 
 app.get("/notes", (req, res) => {
-  res.status(200).json(persons);
+  res.status(200).json(notes);
 });
 
 app.get("/info", (req, res) => {
-  let peopleNumber = persons.length;
+  let peopleNumber = notes.length;
   let date = new Date();
   res.send(`phonebook has info for ${peopleNumber} people
  , ${date}
@@ -92,7 +82,7 @@ app.get("/info", (req, res) => {
 
 app.get("/notes/:id", (req, res) => {
   const id = Number(req.params.id);
-  const person = persons.find((person) => {
+  const person = notes.find((person) => {
     return person.id === id;
   });
   if (person) {
@@ -116,7 +106,7 @@ app.post("/notes", (req, res) => {
     important: true,
   };
 
-  persons.find((person) => {
+  notes.find((person) => {
     for (let prop in personobjectt) {
       if (
         personobjectt[prop] == "" ||
@@ -126,7 +116,7 @@ app.post("/notes", (req, res) => {
         res.send("this person already exists in the phonebook");
       } else {
         res.json(personobjectt);
-        persons = persons.concat(personobjectt);
+        notes = notes.concat(personobjectt);
       }
     }
   });
@@ -134,7 +124,7 @@ app.post("/notes", (req, res) => {
 
 app.delete("/notes/:id", (res, req) => {
   const personId = Number(req.params.id);
-  persons = persons.filter((person) => person.id !== personId);
+  notes = notes.filter((person) => person.id !== personId);
   res.status(204).end();
 });
 
