@@ -1,8 +1,5 @@
-const mongoose = require("mongoose");
-const express = require("express");
-const app = express();
-const url = process.env.MONGODB_URI;
-
+const mongoose = require("mongoose")
+const url = process.env.MONGODB_URI
 const noteSchema = new mongoose.Schema({
   content: String,
   name: String,

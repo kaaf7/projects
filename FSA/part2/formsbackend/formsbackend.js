@@ -3,16 +3,13 @@ const app = express();
 app.use(express.json());
 const Note = require("./models/note");
 
-const uri =
-  "mongodb+srv://kaaf7:karim@cluster0.0wdvheg.mongodb.net/?retryWrites=true&w=majoritymongodb+srv://kaaf7:<password>@cluster0.0wdvheg.mongodb.net/?retryWrites=true&w=majority";
-
 const cors = require("cors");
 
 app.use(cors());
 
 app.use(express.static("build"));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 let notes = [
   {
