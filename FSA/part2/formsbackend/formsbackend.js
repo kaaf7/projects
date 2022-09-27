@@ -1,8 +1,8 @@
 const express = require("express");
+require("dotenv").config();
 const app = express();
 app.use(express.json());
-const Note = require("./models/note");
-
+const NotesCollection = require("./models/note")
 const cors = require("cors");
 
 app.use(cors());
@@ -64,7 +64,6 @@ let notes = [
 
 //get section
 app.get("/", (req, res) => res.send("new backend server"));
-
 app.get("/notes", (req, res) => {
   res.status(200).json(notes);
 });
