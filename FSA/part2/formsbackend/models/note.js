@@ -1,13 +1,14 @@
-const mongoose = require("mongoose")
-const url = process.env.MONGODB_URI
+const mongoose = require("mongoose");
+const url = process.env.MONGODB_URI;
+const newUrl =
+  "mongodb+srv://newkarim:karim@cluster0.fdc02zk.mongodb.net/?retryWrites=true&w=majorit";
 const noteSchema = new mongoose.Schema({
   content: String,
-  name: String,
-  age: Number,
   date: Date,
+  important: Boolean,
 });
 mongoose
-  .connect(url)
+  .connect(newUrl)
   .then((result) => console.log("connected"))
   .catch((err) => console.log(err));
 

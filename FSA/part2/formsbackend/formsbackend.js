@@ -1,14 +1,12 @@
-const express = require("express");
 require("dotenv").config();
+const Note = require("./models/note");
+const cors = require("cors");
+const express = require("express");
+const { response } = require("express");
 const app = express();
 app.use(express.json());
-const NotesCollection = require("./models/note")
-const cors = require("cors");
-
 app.use(cors());
-
 app.use(express.static("build"));
-
 const PORT = process.env.PORT;
 
 let notes = [
@@ -64,8 +62,27 @@ let notes = [
 
 //get section
 app.get("/", (req, res) => res.send("new backend server"));
-app.get("/notes", (req, res) => {
-  res.status(200).json(notes);
+
+app.get("/notes", (request, response) => {
+  Note.find({}).then((notes) => response.json(notes));
+});
+
+app.post("/notes", (request, response) => {
+  const body = request.body;
+
+  if (body.content === undefined) {
+    return response.status(400).json({ error: "content is missing" });
+  }
+
+  const note = new Note({
+    content: body.content,
+    important: body.important || false,
+    date: new Date(),
+  });
+
+  note.save().then((savedNote) => {
+    response.json(savedNote);
+  });
 });
 
 app.get("/info", (req, res) => {
@@ -76,52 +93,18 @@ app.get("/info", (req, res) => {
   `);
 });
 
-app.get("/notes/:id", (req, res) => {
-  const id = Number(req.params.id);
-  const person = notes.find((person) => {
-    return person.id === id;
-  });
-  if (person) {
-    res.send(person);
-  }
-  /*   if (person) {
-    res.send(person);
-  } else if (id === "info") {nod
-    res.send("info");
-  } else {
-    //res.status(404).end();
-    res.send("404 Error, person does not exist!");
-  } */
-});
-
-app.post("/notes", (req, res) => {
-  const personobjectt = {
-    id: "fb727351d-9b92-4859-a698-4b0f91f25c7a",
-    content: "we can update",
-    date: "2022-09-19T22:12:25.162Z",
-    important: true,
-  };
-
-  notes.find((person) => {
-    for (let prop in personobjectt) {
-      if (
-        personobjectt[prop] == "" ||
-        person.name === personobjectt.name ||
-        person.id === personobjectt.id
-      ) {
-        res.send("this person already exists in the phonebook");
-      } else {
-        res.json(personobjectt);
-        notes = notes.concat(personobjectt);
-      }
-    }
+app.get("/notes/:id", (request, response) => {
+  Note.findById(request.params.id).then((note) => {
+    response.json(note);
   });
 });
 
-app.delete("/notes/:id", (res, req) => {
+app.delete("/notes/:id", (req, res) => {
   const personId = Number(req.params.id);
-  notes = notes.filter((person) => person.id !== personId);
+  Note.findById(!req.params.id).then((deletedNote) => {
+    response.json(deletedNote);
+  });
   res.status(204).end();
 });
 
-app.listen(PORT, () => console.log("Server running on port 3000!"));
+app.listen(PORT, () => console.log("Server running on port 5050!"));
