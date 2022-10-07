@@ -69,7 +69,7 @@ function createLibraryCard(library) {
   for (let i = 0; i < library.length; i++) {
     library = library[i];
     // to add one book at a time
-    let card = document.createElement("section");
+    let BookCard = document.createElement("section");
     let btn = document.createElement("button");
     let bookName = document.createElement("div");
     let bookAuthor = document.createElement("div");
@@ -86,12 +86,12 @@ function createLibraryCard(library) {
     btn.style.background = "#F4D19B";
     btn.style.fontFamily = "Bebas Neue";
     btn.style.borderRadius = "5px";
-    card.appendChild(bookName);
-    card.appendChild(bookAuthor);
-    card.appendChild(bookYear);
-    card.appendChild(bookGenre);
-    card.appendChild(btn);
-    board.insertAdjacentElement("beforeend", card);
+    BookCard.appendChild(bookName);
+    BookCard.appendChild(bookAuthor);
+    BookCard.appendChild(bookYear);
+    BookCard.appendChild(bookGenre);
+    BookCard.appendChild(btn);
+    board.insertAdjacentElement("beforeend", BookCard);
 
     btn.addEventListener("click", () => {});
   }
