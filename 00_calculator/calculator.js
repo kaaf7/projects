@@ -18,7 +18,6 @@ const karim = object;
 karim.newName= "karim";
 karim.age = 32;
 const x = 1
-const app = express()
 
 let currentNum = "";
 let previousNum = "";
